@@ -1,6 +1,6 @@
-from django.shortcuts import render
 from django.http import Http404
-
+from django.shortcuts import render
+ 
 
 posts = [
     {
@@ -47,31 +47,16 @@ posts = [
 
 
 def index(request):
-    template_name = "blog/index.html"
     context = {"posts": posts}
-    return render(request, template_name, context)
-
+    return render(request, "blog/index.html", context)
 
 def category(request, category_slug):
-    template_name = "blog/category.html"
     context = {'category': category_slug}
-    return render(request, template_name, context)
+    return render(request, "blog/category.html", context)
 
-
-def detail(request, id):
-    template_name = "blog/detail.html"
+def detail(request, post_id):
     for post in posts:
-        if post['id'] == id:
+        if post['id'] == post_id:
             context = {'post': post}
-            return render(request, template_name, context)
+            return render(request, "blog/detail.html", context)
     raise Http404('Page not found')
-
-
-def about(request):
-    template_name = 'pages/about.html'
-    return render(request, template_name)
-
-
-def rules(request):
-    template_name = 'pages/rules.html'
-    return render(request, template_name)
