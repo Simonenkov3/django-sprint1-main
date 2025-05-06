@@ -8,5 +8,5 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('<int:post_id>/', views.detail, name="post_detail"),
     path('<slug:category_slug>/',
-        views.category, name="category_posts"),
+         views.category, name="category_posts"),
 ]
