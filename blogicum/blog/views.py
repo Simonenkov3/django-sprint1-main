@@ -58,17 +58,10 @@ def category(request, category_slug):
 
 posts_dict = {post['id']: post for post in posts}
 
+
 def detail(request, post_id):
     post = posts_dict.get(post_id)
     if post is None:
         raise Http404('Page not found')
     context = {'post': post}
     return render(request, "blog/detail.html", context)
-
-
-'''def detail(request, post_id):
-    for post in posts:
-        if post['id'] == post_id:
-            context = {'post': post}
-            return render(request, "blog/detail.html", context)
-    raise Http404('Page not found')'''
