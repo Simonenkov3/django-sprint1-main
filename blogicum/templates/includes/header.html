@@ -1,25 +1,21 @@
-{% block block_header %}
 <header>
-    {% with request.resolver_match.view_name as view_name %}
+  {% with request.resolver_match.view_name as view_name %}
     <nav class="navbar navbar-light" style="background-color: lightskyblue">
       <div class="container">
         <a class="navbar-brand" href="{% url 'blog:index' %}">
           <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
           Блогикум
-        </a>
-                
+        </a>                
         <ul class="nav  nav-pills">
           <li class="nav-item">
             <a class="nav-link {% if view_name  == 'blog:index' %}active{% endif %}" href="{% url 'blog:index' %}">
               Лента записей
-            </a>
-             
+            </a>             
           </li>
           <li class="nav-item">              
             <a class="nav-link {% if view_name  == 'pages:about' %}active{% endif %}" href="{% url 'pages:about' %}">
               О проекте
-            </a>
-            
+            </a>            
           </li>
           <li class="nav-item">
             <a class="nav-link {% if view_name  == 'pages:rules' %}active{% endif %}" href="{% url 'pages:rules' %}">
@@ -29,6 +25,5 @@
         </ul>      
       </div>
     </nav> 
-    {% endwith %}
-  </header>
-{% endblock %}
+  {% endwith %}
+</header>

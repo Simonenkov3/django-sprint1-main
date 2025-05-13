@@ -4,15 +4,15 @@
   <h1>Лента записей</h1>                        
   <hr>
   {% for post in posts reversed %}
-  <article>
-    <ul>
-      <li>Место: {{ post.location }}</li>
-      <li>Дата: {{ post.date }}</li>
-      <li>Категория: <a href="{% url 'blog:category_posts' 'category' %}">{{ post.category }}</a></li>
-    </ul>
-    <p>{{ post.text|truncatewords:10 }}</p>
-    <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
-  </article>
+    <article>
+      <ul>
+        <li>Место: {{ post.location }}</li>
+        <li>Дата: {{ post.date }}</li>
+        <li>Категория: <a href="{% url 'blog:category_posts' 'category' %}">{{ post.category }}</a></li>
+      </ul>
+      <p>{{ post.text|truncatewords:10 }}</p>
+      <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
+    </article>
   <hr>
   {% endfor %}    
 {% endblock %}
